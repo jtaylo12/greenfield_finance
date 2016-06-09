@@ -1,0 +1,12 @@
+.round-image {
+  border-radius: 50%;
+}
+.sound-bites, .why-order {
+  background-color: rgb(238, 238, 238);
+}
+.user-image {
+  width: 50px;
+}
+.img-container {
+  vertical-align: middle;
+}

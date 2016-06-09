@@ -1,0 +1,128 @@
+<html>
+<head>
+  <title>Greenfield Financing</title>
+
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- Connect to our own additional CSS -->
+  <link rel="stylesheet" href="assets/additional_styles.css">
+
+  <!-- Connect to jQuery (required before Bootstrap Javascript) -->
+  <script src="assets/jquery-2.2.2.min.js"></script>
+
+  <!-- Connect to Bootstrap Javascript -->
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <!-- These meta tags make Bootstrap responsive and more accessible -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Connect to Google Web Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,300italic,400italic,600italic,700italic,800,800italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<!-- NAVBAR~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <ul class="nav navbar-left">
+              <li>
+            <a class="navbar-brand" href="/">
+              <%= image_tag("mj_leaf.png", :class=>"img-responsive", :width=>"40 px", :height=>"40 px")%>
+            </li>
+          </a>
+          </ul>
+          <ul class="nav navbar-left">
+            <li>
+          <a class="navbar-brand" href="/">Greenfield Financing
+          </li>
+        </a>
+        </ul>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+
+              <li>
+                <p class="navbar-btn">
+                  <a href="/users" class="btn btn-link">
+                    Main
+                  </a>
+                </p>
+              </li>
+
+              <li>
+                <p class="navbar-btn">
+                  <a href="/contact" class="btn btn-link">
+                    Contact Us
+                  </a>
+                </p>
+              </li>
+
+              <li>
+                <p class="navbar-btn">
+                  <a href="/users/sign_out" data-method="delete" rel="nofollow" class="btn btn-link">
+                    Sign Out
+                  </a>
+                </p>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+<!-- LOGO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<div class="container">
+    <div class="row text-center">
+        <div class="col-xs-12 img-responsive text-center"><%= image_tag("greenfield_logo.png",:class=>"img-responsive img-container", :width=>"200 px", :height=>"100%")%>
+</div>
+    <h1><%= @user.first_name.capitalize %>'s Profile</h1></div><hr>
+    <div class="row">
+        <div class="col-md-2">
+          <a href="/users/profile/<%=@user.id%>">Profile</a></br>
+          <a href="/users/billing/<%=@user.id%>">Billing Options</a></br>
+          <a href="/users/loans/<%=@user.id%>">Your Loan Information</a></br>
+          <a href="/users/loan_request/<%=@user.id%>">Request a Loan</a></br>
+        </div>
+        <div class="col-md-10 text-center">
+
+          <h1>CONTENT!</h1>
+<ul class="text-left">
+
+<li><h5>Username: <%= current_user.username %></h5></li>
+<li><h5>E-mail: <%= current_user.email %></h5></li>
+<li><h5>Name: <%= current_user.first_name.capitalize %> <%= current_user.middle_init.capitalize %>. <%= current_user.last_name.capitalize %></h5></li>
+<li><h5>Address:</br><%= current_user.street_address %></br><%= current_user.city %>, <%= current_user.state %></h5></li>
+
+</ul>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-xs-12">
+          <h4>Terms of Service - Legal Language</h4>
+          <p>legal stuff</p>
+        </div>
+    </div>
+</div>
+</body></html>

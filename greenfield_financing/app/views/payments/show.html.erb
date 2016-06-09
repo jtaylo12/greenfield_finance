@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h3>Payment #<%= @payment.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Loan</dt>
+      <dd><%= @payment.loan_id %></dd>
+
+      <dt>User</dt>
+      <dd><%= @payment.user_id %></dd>
+
+      <dt>Previous payment</dt>
+      <dd><%= @payment.previous_payment %></dd>
+
+      <dt>Payment due</dt>
+      <dd><%= @payment.payment_due %></dd>
+
+      <dt>Monthly payment</dt>
+      <dd><%= @payment.monthly_payment %></dd>
+
+      <dt>Total payments</dt>
+      <dd><%= @payment.total_payments %></dd>
+
+      <dt>Payment history</dt>
+      <dd><%= @payment.payment_history %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/payments" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/payments/<%= @payment.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_payment/<%= @payment.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

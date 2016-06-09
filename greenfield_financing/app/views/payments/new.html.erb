@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @payment.errors.any? %>
+  <% @payment.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Payment</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_payment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for loan_id -->
+      <div class="form-group">
+        <label for="loan_id" class="control-label">
+          Loan
+        </label>
+
+        <input type="text" id="loan_id" name="loan_id" placeholder="Loan" class="form-control" value="<%= @payment.loan_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @payment.user_id %>">
+      </div>
+
+      <!-- Label and input for previous_payment -->
+      <div class="form-group">
+        <label for="previous_payment" class="control-label">
+          Previous payment
+        </label>
+
+        <input type="text" id="previous_payment" name="previous_payment" placeholder="Previous payment" class="form-control" value="<%= @payment.previous_payment %>">
+      </div>
+
+      <!-- Label and input for payment_due -->
+      <div class="form-group">
+        <label for="payment_due" class="control-label">
+          Payment due
+        </label>
+
+        <input type="text" id="payment_due" name="payment_due" placeholder="Payment due" class="form-control" value="<%= @payment.payment_due %>">
+      </div>
+
+      <!-- Label and input for monthly_payment -->
+      <div class="form-group">
+        <label for="monthly_payment" class="control-label">
+          Monthly payment
+        </label>
+
+        <input type="text" id="monthly_payment" name="monthly_payment" placeholder="Monthly payment" class="form-control" value="<%= @payment.monthly_payment %>">
+      </div>
+
+      <!-- Label and input for total_payments -->
+      <div class="form-group">
+        <label for="total_payments" class="control-label">
+          Total payments
+        </label>
+
+        <input type="text" id="total_payments" name="total_payments" placeholder="Total payments" class="form-control" value="<%= @payment.total_payments %>">
+      </div>
+
+      <!-- Label and input for payment_history -->
+      <div class="form-group">
+        <label for="payment_history" class="control-label">
+          Payment history
+        </label>
+
+        <input type="text" id="payment_history" name="payment_history" placeholder="Payment history" class="form-control" value="<%= @payment.payment_history %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Payment
+      </button>
+      or
+      <a href="/payments">Cancel</a>
+    </form>
+  </div>
+</div>
